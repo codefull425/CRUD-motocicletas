@@ -1,7 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MotoController;
 
-Route::get('/', function () {
+Route::resource('motos', MotoController::class);
+
+Route::get('/welcome', function () {
     return view('welcome');
 });

@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Moto extends Model
 {
+    protected $fillable = ['marca', 'modelo', 'ano', 'preco'];
     public function up()
     {
         Schema::create('motos', function (Blueprint $table) {
