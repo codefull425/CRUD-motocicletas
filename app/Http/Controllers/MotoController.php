@@ -11,7 +11,8 @@ class MotoController extends Controller
      */
     public function index()
     {
-        //
+        $motos = Moto::all();
+        return view('motos.index', compact('motos'));
     }
 
     /**
@@ -19,7 +20,7 @@ class MotoController extends Controller
      */
     public function create()
     {
-        //
+        return view('motos.create');
     }
 
     /**
@@ -27,7 +28,16 @@ class MotoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'marca' => 'required|string|max:255',
+            'modelo' => 'required|string|max:255',
+            'ano' => 'required|digits:4|integer|min:1900|max:' . date('Y'),
+            'preco' => 'required|numeric|min:0',
+        ]);
+
+        Moto::create($request->all());
+
+        return redirect()->route('motos.index')->with('success', 'Moto cadastrada com sucesso!');
     }
 
     /**
@@ -35,7 +45,8 @@ class MotoController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $moto = Moto::findOrFail($id);
+        return view('motos.edit', compact('moto'));
     }
 
     /**
@@ -43,7 +54,8 @@ class MotoController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $moto = Moto::findOrFail($id);
+        return view('motos.edit', compact('moto'));
     }
 
     /**
@@ -51,7 +63,17 @@ class MotoController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'marca' => 'required|string|max:255',
+            'modelo' => 'required|string|max:255',
+            'ano' => 'required|digits:4|integer|min:1900|max:' . date('Y'),
+            'preco' => 'required|numeric|min:0',
+        ]);
+
+        $moto = Moto::findOrFail($id);
+        $moto->update($request->all());
+
+        return redirect()->route('motos.index')->with('success', 'Moto atualizada com sucesso!');
     }
 
     /**
@@ -59,6 +81,7 @@ class MotoController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Moto::destroy($id);
+        return redirect()->route('motos.index')->with('success', 'Moto removida com sucesso!');
     }
 }
