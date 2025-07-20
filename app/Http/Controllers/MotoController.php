@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Moto;
 use Illuminate\Http\Request;
 
 class MotoController extends Controller
@@ -12,7 +12,9 @@ class MotoController extends Controller
     public function index()
     {
         $motos = Moto::all();
-        return view('motos.index', compact('motos'));
+        print("passou aqui");
+        return view('motos.index', compact( 'motos'));
+
     }
 
     /**
