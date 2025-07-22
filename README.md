@@ -9,7 +9,7 @@ Este projeto é uma API RESTful desenvolvida em Laravel 12.1 para gerenciamento 
 - MySQL
 - Laravel 12.1
 
-- 
+
 ## 🔧 Instalação
 
 ```bash
