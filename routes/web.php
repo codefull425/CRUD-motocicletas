@@ -7,8 +7,8 @@ use App\Http\Controllers\MotoController;
 Route::resource('motos', MotoController::class);
 Route::apiResource('api-motos', MotoControllerAPI::class);
 
-Route::get('/welcome', function () {
-    return view('motos.welcome');
+Route::get('/', function () {
+    return view('welcome');
 
 
 });
