@@ -9,6 +9,17 @@ Este projeto é uma API RESTful desenvolvida em Laravel 12.1 para gerenciamento 
 - MySQL
 - Laravel 12.1
 
+- 
+## 🔧 Instalação
+
+```bash
+git clone https://github.com/codefull425/CRUD-motocicletas
+composer install
+php artisan migrate
+php artisan serve
+```
+
+
 ## 🗃️ Estrutura da API
 
 A API responde em **JSON** e utiliza as seguintes rotas:
